@@ -1,0 +1,63 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ site.data.podcast.title }}</title>
+    <atom:link href="{{site.base_url}}/atom.xml" rel="self" type="application/rss+xml" />
+    <link>{{site.base_url}}</link>
+    <description>{{ site.data.podcast.description }}</description>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <language>{{ site.data.podcast.language }}</language>
+    <copyright>{{ site.data.podcast.copyright }}</copyright>
+    <managingEditor>{{ site.data.podcast.contributors_long }}</managingEditor>
+    <webMaster>{{ site.data.podcast.contributors_long }}</webMaster>
+
+    <itunes:new-feed-url>{{site.base_url}}/atom.xml</itunes:new-feed-url>
+    <itunes:subtitle></itunes:subtitle>
+    <itunes:summary>{{ site.data.podcast.description }}</itunes:summary>
+    <itunes:keywords></itunes:keywords>
+    <itunes:category text="Technology">
+      <itunes:category text="Podcasting" />
+    </itunes:category>
+  </itunes:category>
+    <itunes:category text="Technology" />
+    <itunes:author>{{ site.data.podcast.contributors }}</itunes:author>
+    <itunes:owner>
+      <itunes:name>{{ site.data.podcast.contributors }}</itunes:name>
+      <itunes:email>{{ site.data.podcast.email }}</itunes:email>
+    </itunes:owner>
+    <itunes:block>no</itunes:block>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:image href="{{site.base_url}}/images/logo_itunes_grande.png" />
+
+    {% for post in site.posts %}
+      <item>
+        <link>{{site.base_url}}{{ post.url }}</link>
+        <title>{{ post.title }}</title>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <description>{{'<![CDATA['}}{{ post.content }}{{']]>'}}</description>
+
+        <enclosure url="{{ site.podcast_file_storage }}{{ post.podcast_file_name }}" length="{{post.data_size}}" type="audio/mpeg" />
+        <guid>{{ site.podcast_file_storage | xml_escape }}{{ post.podcast_file_name | xml_escape }}</guid>
+
+        <itunes:author>{{ site.data.podcast.contributors }}</itunes:author>
+        <itunes:summary>{{ post.content | strip_html | xml_escape }}</itunes:summary>
+        <itunes:image href="{{ site.base_url }}{{post.img_src }}" />
+        <itunes:duration>{{ post.duration }}</itunes:duration>
+        <itunes:keywords>{{ post.tags | join:', ' }}</itunes:keywords>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

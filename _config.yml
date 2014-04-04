@@ -1,0 +1,3 @@
+base_url: http://www.pod5.io
+podcast_file_storage: http://s3.amazonaws.com/pod5podcast/
+google_analytics_code: UA-XXXX
