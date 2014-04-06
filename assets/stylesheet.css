@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'gota_lightregular';
+    src: url('gota_light-webfont.eot');
+    src: url('gota_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('gota_light-webfont.woff') format('woff'),
+         url('gota_light-webfont.ttf') format('truetype'),
+         url('gota_light-webfont.svg#gota_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-family: 'gota_lightregular';
+  color:#1C821F;
+}
+
+p {
+  font: "Helvetica Neue Medium", "HelveticaNeue";
+}
+
+a {
+  color:#172E17;
+}
+
+h2 {
+  font-size:20px;
+}
+
+article#headline {
+  padding-top:100px;
+  max-width:960px;
+  margin:0 auto;
+  text-align:center;
+}
+
+article#headline header img {
+  display:block;
+  margin:0 auto;
+  margin-bottom:60px;
+}
+
+article#headline header h2 {
+  width:320px;
+  float:left;
+}
+
+article#headline nav ul {
+  padding:0;  
+  padding-top:40px;
+  clear:both;
+}
+
+article#headline nav li {
+  width:320px;
+  float:left;
+  list-style:none;
+}
+
+article#headline nav li a {
+  display:block;
+}
+
+article#headline nav li img {
+  display:block;
+  margin:0 auto;
+  padding-bottom:10px;
+}
+
+/* iPhone etc */
+
+@media (max-width: 980px) { 
+    article#headline {
+      padding-top:30px;
+      width:320px;
+    }
+    article#headline header img {
+      margin-bottom:40px;
+      
+    }
+}
