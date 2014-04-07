@@ -1,9 +1,9 @@
-title: pod5 podcast
+title: "Pod5 Podcast"
 language: en-gb
 copyright: "Creative Commons Licensed"
 contributors_long: "Daniel Debrovkine &amp; Orta Therox"
 contributors: "dB. &amp; orta"
 email: team@pod5.io
-description: "Description"
-summary: "Summary"
+description: "The 5 minute Objective-C Podcast."
+summary: "The 5 minute Objective-C Podcast."
 itunes_keywords: "objc, uikit, cocoapods, orta, db, ios, mac, developer, objectivec"
