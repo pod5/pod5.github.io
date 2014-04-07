@@ -1,7 +1,8 @@
 base_url: http://pod5.io
+domain: pod5.io
 podcast_file_storage: http://pod5.s3.amazonaws.com/episodes/
 podcast_file_bucket: pod5
-google_analytics_code: UA-XXXX
+google_analytics_code: UA-49779852-1
 markdown: kramdown
 site_title: "Pod 5 Podcast"
 site_description: "The 5 minute Objective-C Podcast"
