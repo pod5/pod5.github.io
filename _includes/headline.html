@@ -10,8 +10,7 @@
   <nav>
       <ul>
         <li>
-          <!-- TODO update this when we get the URL from Apple -->
-          <a href="{{ site.feedburner_url }}">
+          <a href="{{ site.feedburner_url | replace:'http','itpc' }}">
           <img src="/assets/images/podcast@2x.png" width="26" height="31" alt="Podcast">
           <span class="hide_large">Subscribe in iTunes</span>
           <span class="hide_small">iTunes</span>
