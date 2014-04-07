@@ -80,7 +80,7 @@ article#headline nav li img {
   text-align:left;
   padding-top:120px;
   padding-left:320px;
-  padding-bottom:240px;
+  padding-bottom:180px;
   color:black;
 }
 
@@ -113,8 +113,9 @@ article#headline nav li img {
   color:#1C821F;
 }
 
-#content footer {
+body > footer {
   text-align: center;
+  margin-bottom:20px;
 }
 
 /* iPhone etc */
