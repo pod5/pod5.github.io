@@ -32,4 +32,10 @@ To get metadata about pods in a standardised way, use:
   rake pod_stats JGORegExpBuilder JTSImageViewController NBThemeConfig
 ```
 
-It will output to the terminal
+It will output to the terminal.
+
+
+### Credits
+
+We use the font [Gota Light](http://fontfabric.com/gota-free-font/) from Font Fabric.
+We use the song [Dolce Vita](http://www.jamendo.com/en/track/1078823/dolce-vita) by [Auquid](http://www.jamendo.com/en/artist/433381/auquid) for the intro.
