@@ -66,15 +66,39 @@ article#headline nav li img {
   padding-bottom:10px;
 }
 
+.hide_large {
+  display:none;
+}
+
+.hide_small {
+  display:inline;
+}
+
 /* iPhone etc */
 
 @media (max-width: 980px) { 
+    .hide_large {
+      display:inline;
+    }
+    
+    .hide_small {
+      display:none;
+    }
+  
     article#headline {
       padding-top:30px;
       width:320px;
     }
+    
     article#headline header img {
       margin-bottom:40px;
-      
+    }
+    
+    article#headline nav li {
+      margin-bottom:40px;
+    }
+    
+    article#headline nav li.two_col_small {
+      width:160px;
     }
 }
