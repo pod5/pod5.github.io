@@ -26,12 +26,10 @@ layout: nil
     <itunes:summary>{{ site.data.podcast.description }}</itunes:summary>
     <itunes:keywords>{{ site.data.podcast.itunes_keywords }}</itunes:keywords>
     
-    <itunes:category text="Technology">
-      <itunes:category text="Podcasting" />
-    </itunes:category>
-    
-    <itunes:category text="Technology" />
-    </itunes:category>
+    <category>Technology</category>
+    <itunes:category text="Technology"/>
+    <category>Business</category>
+    <itunes:category text="Business"/>
     
     <itunes:author>{{ site.data.podcast.contributors }}</itunes:author>
     <itunes:owner>

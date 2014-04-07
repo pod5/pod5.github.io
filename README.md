@@ -12,6 +12,8 @@
   bundle install
   jekyll serve -w
 ```
+
+Site config is held in `_config,yml` and Podcast specific data in `_data/podcast.yaml`
   
 #### Niceness
 
