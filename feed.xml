@@ -57,7 +57,7 @@ layout: nil
 
         <itunes:author>{{ site.data.podcast.contributors }}</itunes:author>
         <itunes:summary>{{ post.content | strip_html | xml_escape | replace:'&amp;mdash;','-' }}</itunes:summary>
-        <itunes:image href="{{ site.base_url }}{{post.img_src }}" />
+        <itunes:image href="{{site.base_url}}/{{ site.episode_image }}" />
         <itunes:duration>{{ post.duration }}</itunes:duration>
         <itunes:keywords>{{ post.tags | join:', ' }}</itunes:keywords>
       </item>
