@@ -14,7 +14,8 @@
 ```
 
 Site config is held in `_config,yml` and Podcast specific data in `_data/podcast.yaml`
-  
+There is a presumption that you will use feedburner to collect RSS stats.
+
 #### Niceness
 
 Create a new post with the rake task `new_page` e.g.
