@@ -21,18 +21,21 @@ layout: nil
     <sy:updateFrequency>1</sy:updateFrequency>
     <language>{{ site.data.podcast.language }}</language>
     <copyright>{{ site.data.podcast.copyright }}</copyright>
-    <managingEditor>{{ site.data.podcast.contributors_long }}</managingEditor>
-    <webMaster>{{ site.data.podcast.contributors_long }}</webMaster>
+    <managingEditor>{{ site.data.podcast.email }}</managingEditor>
+    <webMaster>{{ site.data.podcast.email }}</webMaster>
 
     <itunes:new-feed-url>{{site.base_url}}/atom.xml</itunes:new-feed-url>
     <itunes:subtitle></itunes:subtitle>
     <itunes:summary>{{ site.data.podcast.description }}</itunes:summary>
-    <itunes:keywords></itunes:keywords>
+    <itunes:keywords>{{ site.data.podcast.itunes_keywords }}</itunes:keywords>
+    
     <itunes:category text="Technology">
       <itunes:category text="Podcasting" />
     </itunes:category>
-  </itunes:category>
+    
     <itunes:category text="Technology" />
+    </itunes:category>
+    
     <itunes:author>{{ site.data.podcast.contributors }}</itunes:author>
     <itunes:owner>
       <itunes:name>{{ site.data.podcast.contributors }}</itunes:name>
