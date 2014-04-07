@@ -1,4 +1,4 @@
-# pod5.github.io
+# pod5.io source
 
 Jekyll site for Pod5
 BSD Licensed.
