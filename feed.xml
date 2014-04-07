@@ -13,16 +13,20 @@ layout: nil
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>{{ site.data.podcast.title }}</title>
-    <atom:link href="{{site.base_url}}/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <atom:link href="{{ site.feedburner_url }}" rel="self" type="application/rss+xml" />
+    <itunes:new-feed-url>{{ site.feedburner_url }}</itunes:new-feed-url>
+    
     <link>{{site.base_url}}</link>
     <description>{{ site.data.podcast.description }}</description>
+    
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    
     <language>{{ site.data.podcast.language }}</language>
     <copyright>{{ site.data.podcast.copyright }}</copyright>
     
-    <itunes:new-feed-url>{{site.base_url}}/feed.xml</itunes:new-feed-url>
     <itunes:subtitle></itunes:subtitle>
     <itunes:summary>{{ site.data.podcast.description }}</itunes:summary>
     <itunes:keywords>{{ site.data.podcast.itunes_keywords }}</itunes:keywords>
@@ -43,16 +47,16 @@ layout: nil
 
     {% for post in site.posts %}
       <item>
-        <link>{{site.base_url}}{{ post.url }}</link>
+        <link>{{site.base_url}}</link>
         <title>{{ post.title }}</title>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <description>{{'<![CDATA['}}{{ post.content }}{{']]>'}}</description>
+        <description>{{'<![CDATA['}}{{ post.content | strip_html | xml_escape | replace:'&amp;mdash;','-' }}{{']]>'}}</description>
 
         <enclosure url="{{ site.podcast_file_storage }}{{ post.podcast_file_name }}" length="{{post.data_length}}" type="audio/mpeg" />
         <guid>{{ site.podcast_file_storage | xml_escape }}{{ post.podcast_file_name | xml_escape }}</guid>
 
         <itunes:author>{{ site.data.podcast.contributors }}</itunes:author>
-        <itunes:summary>{{ post.content | strip_html | xml_escape }}</itunes:summary>
+        <itunes:summary>{{ post.content | strip_html | xml_escape | replace:'&amp;mdash;','-' }}</itunes:summary>
         <itunes:image href="{{ site.base_url }}{{post.img_src }}" />
         <itunes:duration>{{ post.duration }}</itunes:duration>
         <itunes:keywords>{{ post.tags | join:', ' }}</itunes:keywords>
