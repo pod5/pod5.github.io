@@ -47,7 +47,7 @@ layout: nil
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
         <description>{{'<![CDATA['}}{{ post.content }}{{']]>'}}</description>
 
-        <enclosure url="{{ site.podcast_file_storage }}{{ post.podcast_file_name }}" length="{{post.data_size}}" type="audio/mpeg" />
+        <enclosure url="{{ site.podcast_file_storage }}{{ post.podcast_file_name }}" length="{{post.data_length}}" type="audio/mpeg" />
         <guid>{{ site.podcast_file_storage | xml_escape }}{{ post.podcast_file_name | xml_escape }}</guid>
 
         <itunes:author>{{ site.data.podcast.contributors }}</itunes:author>
