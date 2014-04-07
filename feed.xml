@@ -27,7 +27,7 @@ layout: nil
     <language>{{ site.data.podcast.language }}</language>
     <copyright>{{ site.data.podcast.copyright }}</copyright>
     
-    <itunes:subtitle></itunes:subtitle>
+    <itunes:subtitle>{{ site.data.podcast.subtitle }}</itunes:subtitle>
     <itunes:summary>{{ site.data.podcast.description }}</itunes:summary>
     <itunes:keywords>{{ site.data.podcast.itunes_keywords }}</itunes:keywords>
     
