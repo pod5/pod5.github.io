@@ -14,10 +14,12 @@ title: Home
       <h4>{{ post.date | date: "%-d %B %Y" }}</h4>
       <h4>{{ post.duration }}</h4>
       <h4><a href ="{{ site.podcast_file_storage }}{{ post.podcast_file_name }}">Play</a></h4>
-      
+
     </header>
 
     {{ post.content }}
 
 {% endfor %}
 </section>
+
+{% include footnote.html %}
