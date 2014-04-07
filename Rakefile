@@ -21,7 +21,7 @@ task :new_podcast do
   filename = Pathname.new(mp3_path).basename
 
   post_count = Dir.glob(File.join("_posts/", '*')).select { |file| File.file?(file) }.count + 1
-  post_filename =  Time.now.strftime("%Y-%d-%m-") + ("%03d" % post_count)
+  post_filename =  Time.now.strftime("%Y-%m-%d") + ("%03d" % post_count)
   full_post_path = '_posts/' + post_filename + ".html"
 
   output = ""
