@@ -1,8 +1,8 @@
 title: pod5 podcast
-language: GB_en
+language: en-gb
 copyright: "X and Y"
-contributors_long: "Daniel Debrovkine & Orta Therox"
-contributors: "dB. & orta"
+contributors_long: "Daniel Debrovkine &amp; Orta Therox"
+contributors: "dB. &amp; orta"
 email: team@pod5.io
 description: "Description"
 summary: "Summary"
