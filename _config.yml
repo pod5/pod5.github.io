@@ -6,4 +6,4 @@ markdown: kramdown
 site_title: "Pod 5 Podcast"
 site_description: "The 5 minute Objective-C Podcast"
 site_logo: assets/images/logo@2x.png
-feedburner_url: http://feed.pod.io
+feedburner_url: http://feed.pod5.io
