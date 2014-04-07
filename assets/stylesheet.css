@@ -113,8 +113,10 @@ article#headline nav li img {
   color:#1C821F;
 }
 
-#content footer {
+footer {
   text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 /* iPhone etc */
