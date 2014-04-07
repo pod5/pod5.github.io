@@ -1,5 +1,6 @@
 base_url: http://pod5.io
-podcast_file_storage: http://s3.amazonaws.com/pod5podcast/
+podcast_file_storage: http://pod5.s3.amazonaws.com/episodes/
+podcast_file_bucket: pod5
 google_analytics_code: UA-XXXX
 markdown: kramdown
 site_title: "Pod 5 Podcast"

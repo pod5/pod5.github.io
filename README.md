@@ -34,6 +34,11 @@ To get metadata about pods in a standardised way, use:
 
 It will output to the terminal.
 
+To automate uploading, add a `.s3cfg` to the project root, and use 
+
+```
+  rake upload_mp3 ../path/to/file.mp3
+```
 
 ### Credits
 

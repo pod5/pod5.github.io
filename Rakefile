@@ -80,3 +80,17 @@ task :pod_stats do
   
   exit
 end
+
+desc "Upload an MP3 to your s3 account"
+task :upload_mp3 do
+  name = ARGV.last
+  if name == "upload_mp3"
+    puts "Please give a file path to an MP3"
+    exit
+  end
+  
+  require 'yaml'
+  config = YAML.load File.open("_config.yml").read
+  filename = Pathname.new(name).basename
+  exec "s3cmd --config=.s3cfg --acl-public put #{ name }  s3://#{config["podcast_file_bucket"]}/episodes/#{filename}" 
+end
