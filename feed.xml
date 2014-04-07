@@ -21,7 +21,8 @@ layout: nil
     <sy:updateFrequency>1</sy:updateFrequency>
     <language>{{ site.data.podcast.language }}</language>
     <copyright>{{ site.data.podcast.copyright }}</copyright>
-    <itunes:new-feed-url>{{site.base_url}}/atom.xml</itunes:new-feed-url>
+    
+    <itunes:new-feed-url>{{site.base_url}}/feed.xml</itunes:new-feed-url>
     <itunes:subtitle></itunes:subtitle>
     <itunes:summary>{{ site.data.podcast.description }}</itunes:summary>
     <itunes:keywords>{{ site.data.podcast.itunes_keywords }}</itunes:keywords>
