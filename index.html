@@ -5,5 +5,16 @@ title: Home
 
 {% include headline.html %}
 
+<section id="content">
+{% for post in site.posts limit: 10  %}
 
-{% include post.html %}
+  <article>
+    <header>
+      <h3>{{ post.title }}</h3>
+      <h4>{{ post.date | date: "%-d %B %Y" }}</h4>
+    </header>
+
+    {{ post.content }}
+
+{% endfor %}
+</section>

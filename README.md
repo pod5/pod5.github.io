@@ -18,10 +18,18 @@ There is a presumption that you will use feedburner to collect RSS stats.
 
 #### Niceness
 
-Create a new post with the rake task `new_page` e.g.
+Create a podcast post with the rake task `new_podcast` e.g.
 
 ```
-  rake new_page ../path/to/file.mp3
+  rake new_podcast ../path/to/file.mp3
 ```
 
 and it will generate the metadata for the podcast feed. It will not upload it.
+
+To get metadata about pods in a standardised way, use:
+
+```
+  rake pod_stats JGORegExpBuilder JTSImageViewController NBThemeConfig
+```
+
+It will output to the terminal

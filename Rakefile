@@ -2,7 +2,7 @@ require "mp3info"
 require 'pathname'
 
 desc "Create a new post based off your mp3"
-task :new_page do
+task :new_podcast do
   name = ARGV.last
   if name == "new_page"
     puts "Please give a file path to an MP3"
@@ -20,22 +20,23 @@ task :new_page do
   filesize = File.stat(mp3_path).size
   filename = Pathname.new(mp3_path).basename
 
+  post_count = Dir.glob(File.join("_posts/", '*')).select { |file| File.file?(file) }.count + 1
+  post_filename =  Time.now.strftime("%Y-%d-%m-") + ("%03d" % post_count)
+  full_post_path = '_posts/' + post_filename + ".html"
+
   output = ""
   output <<  "---\n"
-  output <<  "layout: post"
+  output <<  "layout: post\n"
   output <<  "podcast_file_name: '#{filename}'\n"
   output <<  "duration: '#{length}'\n"
   output <<  "data_length: '#{filesize}'\n"
   output <<  "published: true\n"
+  output <<  "title: Episode #{post_count}\n"
   output <<  "show_notes:\n"
   output <<  '  - "http://thing.com": "OK"\n'
   output <<  "---\n"
   output <<  "\n"
   output <<  "This is a new post"
-  
-  post_count = Dir.glob(File.join("_posts/", '*')).select { |file| File.file?(file) }.count + 1
-  post_filename =  Time.now.strftime("%Y-%d-%m-") + ("%03d" % post_count)
-  full_post_path = '_posts/' + post_filename + ".html"
   
 
   File.open(full_post_path, 'w') do |file|
@@ -44,4 +45,38 @@ task :new_page do
   
   puts "Created file at "+ full_post_path
 
+end
+
+desc "Create a summary of each pod"
+task :pod_stats do
+  name = ARGV.last
+  if name == "pod_stats"
+    puts "Please give some pods."
+    exit
+  end
+
+  # This will someday break
+  #  https://github.com/CocoaPods/search.cocoapods.org/blob/8908eaaf83a11b3075d36032cb8c5896e37c7366/app.rb#L119-L121
+  
+  require 'open-uri'
+  require 'json'
+  
+  pods = []
+  ARGV.reverse_each do |pod_name| 
+    break if pod_name == "pod_stats"
+      
+    puts "Getting #{pod_name}" 
+    content = open("http://search.cocoapods.org/api/v1/pod/" + pod_name + ".json").read
+    pods << JSON.parse(content)
+  end
+  
+  summary = ""  
+  pods.reverse_each do |pod|
+    summary << "<p><a href=" + pod["homepage"] + '>' + pod["name"] + "</a> " + pod["version"] + " by " + pod["authors"].keys.first + "<br/>\n"
+    summary << " &mdash; " + pod["summary"] + "</p>\n"
+  end
+  
+  puts summary
+  
+  exit
 end
