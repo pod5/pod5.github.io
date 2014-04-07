@@ -1,8 +1,8 @@
 # pod5.io source
 
-http://pod5.io
-Jekyll site for Pod5
-BSD Licensed.
+* http://pod5.io
+* Jekyll site for Pod5.
+* Very simple & BSD Licensed. Good for forking and making your own Podcast with. Lots of work is done to make it config based rather than hardcoded.
 
 ## Setup
 
