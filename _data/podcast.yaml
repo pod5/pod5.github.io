@@ -4,7 +4,6 @@ copyright: "Creative Commons Licensed"
 contributors_long: "Daniel Debrovkine &amp; Orta Therox"
 contributors: "dB. &amp; orta"
 email: team@pod5.io
-description: "The 5 minute Objective-C Podcast."
 subtitle: "The 5 minute Objective-C Podcast."
-summary: "A bi-weekly 5 minute summary podcast discussing what's new and interesting in the Objective-C world."
+description: "A bi-weekly 5 minute summary podcast discussing what's new and interesting in the Objective-C world."
 itunes_keywords: "objc, uikit, cocoapods, orta, db, ios, mac, developer, objectivec"
