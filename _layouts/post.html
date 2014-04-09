@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Pod5 - The Succint Objective-C Podcast: {{page.title}}</title>
+    <meta name="author"  content="orta; http://orta.github.com/" />
+    <meta name="author"  content="db; http://dblock.org/" />
+    <meta name="title" content="{{ site.site_title }}: {{ page.title }}"/>
+    <meta name="description" content="{{ site.site_description }} - {{ page.title }}"/>
+    {% include head.html %}
+  </head>
+  <body>
+    <a href="/">back</a>
+    <section id="content">
+      <article>
+        <header>
+          <h3>{{ page.title }}</h3>
+          <h4>{{ page.date | date: "%-d %B %Y" }}</h4>
+          <h4>{{ page.duration }}</h4>
+          <h4><a href ="{{ site.podcast_file_storage }}{{ post.podcast_file_name }}">Play</a></h4>
+        </header>
+        {{content}}
+      </article>
+    </section>
+    {% include ga.html %}
+  </body>
+  {% include footnote.html %}
+</html>

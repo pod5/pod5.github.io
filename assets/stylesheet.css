@@ -107,6 +107,11 @@ article#headline nav li img {
   color:#1C821F;
 }
 
+#content header h3 a {
+  font-family: "gota_lightregular";
+  text-decoration:none;
+}
+
 #content header h4 {
   font-size:18px;
   margin-top:0;
