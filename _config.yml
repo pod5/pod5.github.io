@@ -9,3 +9,4 @@ site_description: "The 5 minute Objective-C Podcast"
 site_logo: assets/images/logo@2x.png
 episode_image: assets/images/pod_5twitter.png
 feedburner_url: http://feed.pod5.io
+permalink: /:title

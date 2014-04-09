@@ -26,13 +26,15 @@ Create a podcast post with the rake task `new_podcast` e.g.
 
 and it will generate the metadata for the podcast feed. It will not upload it.
 
-To get metadata about pods in a standardised way, use:
+To get generate metadata about pods in a standardised way, use:
 
 ```
-  rake pod_stats JGORegExpBuilder JTSImageViewController NBThemeConfig
+  rake pod_stats html JGORegExpBuilder JTSImageViewController NBThemeConfig
+  rake pod_stats tweet JGORegExpBuilder JTSImageViewController NBThemeConfig
 ```
 
-It will output to the terminal.
+It will output to the terminal and add the relevant output to your pasteboard.
+
 
 To automate uploading, add a `.s3cfg` to the project root, and use 
 
