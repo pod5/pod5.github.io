@@ -118,6 +118,35 @@ body > footer {
   margin-bottom:20px;
 }
 
+#content article p.ed {
+  font-style:italic;
+  font-family: "HelveticaNeue-Light", "HelveticaNeue";
+}
+
+#content article ul {
+  padding-left:0;
+}
+
+#content article li {
+  list-style:none;
+}
+
+#content article p {
+  margin-top:6px;
+  margin-bottom:20px;
+  
+}
+
+
+#content article li h4 {
+  font-family: "Helvetica Neue Light", "HelveticaNeue";
+  margin-bottom:6px;
+}
+
+#content article {
+  margin-bottom:60px;
+}
+
 /* iPhone etc */
 
 @media (max-width: 980px) {
