@@ -21,7 +21,7 @@ task :new_podcast do
   filename = Pathname.new(mp3_path).basename
 
   post_count = Dir.glob(File.join("_posts/", '*')).select { |file| File.file?(file) }.count + 1
-  post_filename =  Time.now.strftime("%Y-%m-%d") + ("-%03d" % post_count)
+  post_filename =  Time.now.strftime("%Y-%m-%d") + ("-episode%d" % post_count)
   full_post_path = '_posts/' + post_filename + ".html"
 
   output = ""
@@ -35,12 +35,12 @@ task :new_podcast do
   output <<  "---\n"
   output <<  "\n"
   output <<  "This is a new post"
-  
+
 
   File.open(full_post_path, 'w') do |file|
     file.write(output)
   end
-  
+
   puts "Created file at "+ full_post_path
 
 end
@@ -63,7 +63,7 @@ desc "Create a summary of pod authors for a tweet."
 task :tweet do
   summary = "We'd like to thank "
   pods_with_no_attribution = []
-  
+
   @pods.each do |pod|
     if pod["social_media_url"]
       summary << "@" + pod["social_media_url"].split("/")[-1] + ", "
@@ -71,7 +71,7 @@ task :tweet do
       pods_with_no_attribution << pod
     end
   end
-  
+
   puts summary + "\n\n has been added to your pasteboard."
   IO.popen('pbcopy', 'w') { |f| f << summary }
 
@@ -80,8 +80,8 @@ task :tweet do
     pods_with_no_attribution.each do |pod|
       puts " - " + pod["homepage"]
     end
-  end 
-   
+  end
+
   exit
 end
 
@@ -89,11 +89,11 @@ end
 
 desc "Create a summary of pod authors for the website."
 task :html do
-  summary = "{% include post_start %}\n\n"
+  summary = "{% include post_start.html %}\n\n"
   @pods.each do |pod|
     authors = authors(pod)
-    
-    summary += "{% include note.html " + 
+
+    summary += "{% include note.html " +
       "  project='" + pod["name"] +
       "' version='" + pod["version"] +
       "' author='"  + authors +
@@ -102,27 +102,27 @@ task :html do
       "' homepage='" + pod["homepage"] +
       "' %} \n\n"
   end
-  summary += "{% include post_end %}\n\n"
-  
+  summary += "{% include post_end.html %}\n\n"
+
   puts summary + "\n\n has been added to your pasteboard."
   IO.popen('pbcopy', 'w') { |f| f << summary }
-  
+
   exit
 end
 
 
 def get_pods_from_args
-  
+
   require 'open-uri'
   require 'json'
 
   # This will someday break
-  #  https://github.com/CocoaPods/search.cocoapods.org/blob/8908eaaf83a11b3075d36032cb8c5896e37c7366/app.rb#L119-L121  
+  #  https://github.com/CocoaPods/search.cocoapods.org/blob/8908eaaf83a11b3075d36032cb8c5896e37c7366/app.rb#L119-L121
   puts "Downloading podspecs \n\n"
-  
+
   pods = []
-  ARGV.reverse_each do |pod_name| 
-    break if ["tweet", "pod_name", "html"].include? pod_name 
+  ARGV.reverse_each do |pod_name|
+    break if ["tweet", "pod_name", "html"].include? pod_name
     begin
       content = open("http://search.cocoapods.org/api/v1/pod/" + pod_name + ".json").read
       pods << JSON.parse(content)
@@ -143,7 +143,7 @@ def authors pod
     authors
   end
 end
-  
+
 
 desc "Upload an MP3 to your s3 account"
 task :upload_mp3 do
@@ -152,9 +152,9 @@ task :upload_mp3 do
     puts "Please give a file path to an MP3"
     exit
   end
-  
+
   require 'yaml'
   config = YAML.load File.open("_config.yml").read
   filename = Pathname.new(name).basename
-  exec "s3cmd --config=.s3cfg --acl-public put '#{ name }'  s3://#{config["podcast_file_bucket"]}/episodes/#{filename}" 
+  exec "s3cmd --config=.s3cfg --acl-public put '#{ name }'  s3://#{config["podcast_file_bucket"]}/episodes/#{filename}"
 end
