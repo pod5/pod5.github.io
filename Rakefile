@@ -100,6 +100,7 @@ task :html do
       "' twitter='" + (pod["social_media_url"] ? pod["social_media_url"].split("/")[-1] : "") +
       "' description='"   + pod["summary"].gsub("'", "&#39;") +
       "' homepage='" + pod["homepage"] +
+      "' source='" + pod["source"]["git"][0...-4] +
       "' %} \n\n"
   end
   summary += "{% include post_end.html %}\n\n"

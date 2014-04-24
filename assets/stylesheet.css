@@ -126,6 +126,8 @@ body > footer {
 #content article p.ed {
   font-style:italic;
   font-family: "HelveticaNeue-Light", "HelveticaNeue";
+  margin-left:auto;
+  margin-top:30px;
 }
 
 #content article ul {
@@ -138,8 +140,8 @@ body > footer {
 
 #content article p {
   margin-top:6px;
-  margin-bottom:20px;
-  
+  margin-bottom:6px;
+  margin-left:20px;
 }
 
 
