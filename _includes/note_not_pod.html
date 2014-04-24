@@ -1,11 +1,11 @@
 <li>
   <h4>
-    <a href={{ include.homepage }}>{{ include.project }}</a> 
+    <a href={{ include.homepage }}>{{ include.project }}</a>
     {% if include.author %} by {{ include.author }} {% endif %}
     {% if include.twitter %} ( <a href="http://twitter.com/{{ include.twitter }}">@{{ include.twitter }}</a> ){% endif %}
     {% if include.subtitle %} {{ include.subtitle }} {% endif %}
   </h4>
-  
-  {% if include.description %}  <p> &mdash; {{ include.description }} </p>{% endif %}
-  
+
+  {% if include.description %}  <p>{{ include.description }} </p>{% endif %}
+
 </li>
