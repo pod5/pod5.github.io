@@ -1,7 +1,12 @@
 <li>
-  <h4><a href={{ include.homepage }}>{{ include.project }}</a> {{ include.version }} by {{ include.author }}
-    {% if include.twitter != "" %} ( <a href="http://twitter.com/{{ include.twitter }}">@{{ include.twitter }}</a> ){% endif %}</h4>
-
+  <h4>
+    <a href={{ include.homepage }}>{{ include.project }}</a>
+    {% if include.source != '' and include.source != include.homepage %}
+      &nbsp;
+      ( <a href={{ include.source }}>source</a> )
+    {% endif %}
+    {{ include.version }} by {{ include.author }}
+    {% if include.twitter != "" %} ( <a href="http://twitter.com/{{ include.twitter }}">@{{ include.twitter }}</a> ){% endif %}
+  </h4>
   <p>{{ include.description }}</p>
-  <p><a href={{ include.source }}>source</a></p>
 </li>
