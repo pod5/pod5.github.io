@@ -111,6 +111,23 @@ task :html do
   exit
 end
 
+desc "Create A summary for the notes."
+task :text do
+  summary = ""
+  
+  @pods.each do |pod|
+    authors = authors(pod)
+    summary += pod["name"] + " - " + pod["version"] + "/n" + "by "  + authors + " - @" +  pod["social_media_url"].to_s + "\n" + pod["summary"].gsub("'", "&#39;") + " - " +  pod["homepage"]
+    summary += "\n\n"
+  end
+
+  puts summary + "\n\n has been added to your pasteboard."
+  IO.popen('pbcopy', 'w') { |f| f << summary }
+
+  exit
+end
+
+
 
 def get_pods_from_args
 
