@@ -56,7 +56,7 @@ layout: nil
         <guid>{{ site.podcast_file_storage | xml_escape }}{{ post.podcast_file_name | xml_escape }}</guid>
 
         <itunes:author>{{ site.data.podcast.contributors }}</itunes:author>
-        <itunes:summary>{{ post.content | strip_html | xml_escape | replace:'&amp;mdash;','-' }}</itunes:summary>
+        <itunes:summary>{{ post.content | xml_escape | replace:'&amp;mdash;','-' }}</itunes:summary>
         <itunes:image href="{{site.base_url}}/{{ site.episode_image }}" />
         <itunes:duration>{{ post.duration }}</itunes:duration>
         <itunes:keywords>{{ post.tags | join:', ' }}</itunes:keywords>
