@@ -92,6 +92,12 @@ task :html do
   summary = "{% include post_start.html %}\n\n"
   @pods.each do |pod|
     authors = authors(pod)
+    source = pod["source"]
+    if pod["git"]
+       source = pod["git"][0...-4]
+    else
+      source = pod["html"] || ""
+    end
 
     summary += "{% include note.html " +
       "  project='" + pod["name"] +
@@ -100,7 +106,7 @@ task :html do
       "' twitter='" + (pod["social_media_url"] ? pod["social_media_url"].split("/")[-1] : "") +
       "' description='"   + pod["summary"].gsub("'", "&#39;") +
       "' homepage='" + pod["homepage"] +
-      "' source='" + pod["source"]["git"][0...-4] +
+      "' source='" + source +
       "' %} \n\n"
   end
   summary += "{% include post_end.html %}\n\n"
@@ -117,7 +123,7 @@ task :text do
   
   @pods.each do |pod|
     authors = authors(pod)
-    summary += pod["name"] + " - " + pod["version"] + "/n" + "by "  + authors + " - @" +  pod["social_media_url"].to_s + "\n" + pod["summary"].gsub("'", "&#39;") + " - " +  pod["homepage"]
+    summary += pod["name"] + " - " + pod["version"] + "\n" + "by "  + authors + " - @" +  pod["social_media_url"].to_s + "\n" + pod["summary"].gsub("'", "&#39;") + " - " +  pod["homepage"]
     summary += "\n\n"
   end
 
@@ -140,7 +146,7 @@ def get_pods_from_args
 
   pods = []
   ARGV.reverse_each do |pod_name|
-    break if ["tweet", "pod_name", "html"].include? pod_name
+    break if ["tweet", "pod_name", "html", "text"].include? pod_name
     begin
       content = open("http://search.cocoapods.org/api/v1/pod/" + pod_name + ".json").read
       pods << JSON.parse(content)
