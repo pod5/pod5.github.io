@@ -93,10 +93,10 @@ task :html do
   @pods.each do |pod|
     authors = authors(pod)
     source = pod["source"]
-    if pod["git"]
-       source = pod["git"][0...-4]
+    if source["git"]
+       source = source["git"][0...-4]
     else
-      source = pod["html"] || ""
+      source = source["html"] || ""
     end
 
     summary += "{% include note.html " +
