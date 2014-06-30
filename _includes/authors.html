@@ -1,0 +1,17 @@
+{% if post.contributors %}
+  <div class = "ed">By 
+  {% for contributor in post.contributors %}
+    <a href="http://twitter.com/{{ contributor[1] }}">@{{ contributor[0] }}</a> 
+    {% if forloop.last == false %} &amp; {% endif %}
+  {% endfor %}
+  </div>
+{% endif %}
+
+{% if page.contributors %}
+  <div class = "ed">By 
+  {% for contributor in page.contributors %}
+    <a href="http://twitter.com/{{ contributor[1] }}">@{{ contributor[0] }}</a> 
+    {% if forloop.last == false %} &amp; {% endif %}
+  {% endfor %}
+  </div>
+{% endif %}
